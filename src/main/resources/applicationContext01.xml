@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--spring 创建对象的三种方式 -->
+    <!--1.只有id class属性，则调用默认构造方法创建。-->
+    <bean id="accountDao" class="com.jinyuxin.spring051301.dao.impl.AccountDaoImpl"/>
+    <!--scope为singleton时 单例 为prototype时 多例-->
+    <bean id="accountService" class="com.jinyuxin.spring051301.services.impl.AccountServiceImpl" init-method="init"
+          destroy-method="destroy">
+        <!--此处的name的取值，代码中必须有其对应的set方法。-->
+        <property name="ac" ref="accountDao"/>
+    </bean>
+    <!--2.调用其他类的方法创建对象。-->
+    <!--    <bean id="instanceFactory" class="com.jinyuxin.spring051302.factory.InstanceFactory"/>-->
+    <!--    <bean id="accountService01" factory-bean="instanceFactory" factory-method="getInstance"/>-->
+    <!--3.调用其他类的静态方法创建对象。-->
+    <!--    <bean id="accountService02" class="com.jinyuxin.spring051302.factory.StaticFactory" factory-method="getInstance"/>-->
+
+
+    <!--spring容器的对象生命周期-->
+    <!--
+       1.单例对象：
+         随着容器的创建而生，容器的销毁而死亡。与容器生命周期相同。
+       2.多例对象：
+         出生：使用对象时间，spring创建
+         活着：在使用中就是活着的
+         死亡：由gc管理
+    -->
+
+
+</beans>
