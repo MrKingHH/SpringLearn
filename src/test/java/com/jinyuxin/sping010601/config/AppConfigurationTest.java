@@ -6,14 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.web.client.RestTemplate;
 
 /**
  * @author 金余新
  * @date 2021/1/6 14:54
  */
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = AppConfiguration.class)
+//@ExtendWith(SpringExtension.class)
+//@ContextConfiguration(classes = AppConfiguration.class)
+@SpringJUnitConfig(AppConfiguration.class)
 public class AppConfigurationTest {
 
     @Autowired

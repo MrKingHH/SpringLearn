@@ -56,6 +56,7 @@ public class JdbcConfiguration {
       ds.setJdbcUrl(url);
       ds.setUser(user);
       ds.setPassword(String.valueOf(password));
+      ds.setCheckoutTimeout(3000);
       return ds;
     } catch (PropertyVetoException e) {
       throw new RuntimeException(e);
